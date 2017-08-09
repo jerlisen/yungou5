@@ -1,0 +1,110 @@
+.encourage_awardcss{
+border-top: 0 solid #F60;
+position: relative;
+width: 1120px;
+overflow: hidden;
+
+}
+.encourage_awardcss h4{
+background: #F60;
+color: #FFF;
+height: 29px;
+line-height: 28px;
+text-align: center;
+width: 1120px;
+margin-top:10px;
+font: 18px;
+}
+.eyghelp{
+margin: 17px 0 7px 0;
+text-align: left;
+padding: 5px 0 5px 0px;
+line-height: 20px;
+text:bold;
+}
+.eyghelp ul.Erecord_title {
+background: rgba(247, 245, 204, 0.98);
+height: 33px;
+width: 620px;
+overflow: hidden;
+margin-left:0px;
+border-bottom: #888 2px solid;
+}
+
+.eyghelp ul.Erecord_title li.gljcss   {
+width: 60px;
+color: #3c3c3c;
+display: block;
+float: left;
+text-align: center;
+height: 17px;
+line-height: 17px;
+overflow: hidden;
+padding: 9px 0 9px 23px;
+}
+.eyghelp ul.Erecord_title li.gljcsspl   {
+width: 120px;
+color: #3c3c3c;
+display: block;
+float: left;
+text-align: center;
+height: 17px;
+line-height: 17px;
+overflow: hidden;
+padding: 9px 0 9px 23px;
+}
+.eyghelp ul.Erecord_title li.much {
+width: 65px;
+color: #da3553;
+display: block;
+float: left;
+text-align: center;
+height: 17px;
+line-height: 17px;
+overflow: hidden;
+padding: 9px 0 9px 23px;
+}
+
+.eyghelp ul.Erecord_content {
+height: 40px;
+width: 620px;
+overflow: hidden;
+border-bottom: 1px solid #F4F4F4;
+margin-left:auto;
+margin-right:auto;
+}
+
+
+.eyghelp ul.Erecord_content li.gljcss   {
+width: 65px;
+color: #3c3c3c;
+display: block;
+float: left;
+text-align: left;
+height: 25px;
+line-height: 17px;
+overflow: hidden;
+padding: 9px 0 9px 23px;
+}
+.eyghelp ul.Erecord_content li.gljcsspl   {
+width: 120px;
+color: #3c3c3c;
+display: block;
+float: left;
+text-align: left;
+height: 25px;
+line-height: 17px;
+overflow: hidden;
+padding: 9px 0 9px 23px;
+}
+.eyghelp ul.Erecord_content li.much {
+width: 65px;
+color: #da3553;
+display: block;
+float: left;
+text-align: center;
+height: 17px;
+line-height: 17px;
+overflow: hidden;
+padding: 9px 0 9px 23px;
+}

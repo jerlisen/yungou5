@@ -1,0 +1,221 @@
+{wc:templates "index","header"}
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/Referrals.css"/>
+<script>
+$(function(){
+	$("#referDocument li").bind({		
+		mouseover:function(){
+			var number=$("#referDocument li").index(this)+1;
+			$(".S0"+number).removeClass("hidden");
+		},
+		mouseout:function(){
+			var number=$("#referDocument li").index(this)+1;
+			$(".S0"+number).addClass("hidden");
+		}
+	})
+})
+</script>
+<style type="text/css">
+#d_clip_container,.my_clip_button,.d_clip_copy{margin:0;width:95px; height:32px; line-height:34px; text-align:center;}
+#d_clip_container{top:-32px;}
+#fe_text{resize:none;margin-bottom:10px;}
+.my_clip_button {position:absolute; border:1px solid #999; background-color:#ccc; cursor:default; font-size:9pt; }
+.my_clip_button.hover { background-color:#eee; }
+.my_clip_button.active { background-color:#aaa; }
+.d_clip_copy{ font-size:14px;color:#000;}
+#d_clip_button{filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity:0.5; opacity:0.5;}
+</style>
+{wc:php:start}
+	$uid = _encrypt(get_user_uid());
+{wc:php:end}
+<link rel="stylesheet" type="text/css" href="/statics/templates/yungou/css/kefu.css"/>
+<p>
+  <script type="text/javascript" src="/statics/templates/yungou/js/ZeroClipboard.js"></script>
+  <script>
+$(function(){
+	$("#referDocument li").bind({		
+		mouseover:function(){
+			var number=$("#referDocument li").index(this)+1;
+			$(".S0"+number).removeClass("hidden");
+		},
+		mouseout:function(){
+			var number=$("#referDocument li").index(this)+1;
+			$(".S0"+number).addClass("hidden");
+		}
+	})
+})
+</script>
+  <style type="text/css">
+#d_clip_container,.my_clip_button,.d_clip_copy{margin:0;width:95px; height:32px; line-height:34px; text-align:center;}
+#d_clip_container{top:-32px;}
+#fe_text{resize:none;margin-bottom:10px;}
+.my_clip_button {position:absolute; border:1px solid #999; background-color:#ccc; cursor:default; font-size:9pt; }
+.my_clip_button.hover { background-color:#eee; }
+.my_clip_button.active { background-color:#aaa; }
+.d_clip_copy{ font-size:14px;color:#000;}
+#d_clip_button{filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity:0.5; opacity:0.5;}
+  </style>
+  
+
+    </p>
+<!-- 顶部结束 -->
+<!-- 内容页主体开始 -->
+<div class="content">
+<script>
+function csclear()
+{
+     document.cs.a.value = '';
+     document.cs.b.value = '';
+     document.cs.c.value = '';
+	 
+	 var ss = document.getElementById('output');
+     ss.innerHTML = '';	 
+	 //var ss2 = document.getElementById('output2');
+     //ss2.innerHTML = '';	
+	 
+     document.cs.b.focus();
+}
+function isNum(args)
+{
+	args = args.toString();
+
+	if (args.length == 0)
+	return false;
+
+	for (var i = 0;  i<args.length;  i++)
+	{
+		if ((args.substring(i,i+1) < "0" || args.substring(i, i+1) > "9") && args.substring(i, i+1) != "." && args.substring(i, i+1) != "-")
+		{
+			return false;
+		}
+	}
+	return true;
+}
+function cscheck(i)
+{
+     var a = document.cs.a.value;
+     var b = document.cs.b.value;
+     //var c = document.cs.c.value;
+	//alert(c);
+ 	if (i == "1" && !isNum(a))
+	{
+		  a = a.substring(0,a.length-1);
+		  document.cs.a.value = a;
+		  return;	   
+	}
+ 	if (i == "2" && !isNum(b))
+	{
+		  b = b.substring(0,b.length-1);
+		  document.cs.b.value = b;
+		  return;	   
+	}
+}
+function calcs()
+{
+     var a = document.cs.a.value;
+     var b = document.cs.b.value;
+     //var c = document.cs.c.value;
+	 if (a == "" && b== "") {return;}
+	 if (b == 0) {return;}
+	 
+	 var q = parseInt(a / b);
+	 var r = a % b;
+	 
+	 document.cs.c.value=q;
+	 document.cs.c2.value=r;	 
+
+	 var ss = document.getElementById('output');
+	 
+	 var str = ss.innerHTML;
+	 if (str == "")
+	 {
+	     str = "<br><center><h4>计算结果：</h4><font size=4><table class=countrytable><tbody>\n";
+	 }
+	 else
+	 {
+		str =str.replace("</TBODY></TABLE></FONT></CENTER>","</tbody></table></font></center>");
+	    str = str.replace("<TBODY>","<tbody>");
+		str =str.replace("</tbody></table></font></center>","");
+	 }
+	var str2 = "<tbody><tr><td width=150 align=right>"+ a + "&nbsp;÷&nbsp;" + b + "&nbsp;:</td><td width=400 align=left>&nbsp;商=&nbsp;" + q + ";&nbsp;余数=&nbsp;" + r ;
+	str2 += "</td></tr>\n";
+	str = str.replace("<tbody>",str2);
+	str += "</tbody></table></font></center>\n";
+
+	ss.innerHTML = str;
+}
+</script>
+
+
+<div id="main">
+		<div class="homeintrored">	
+		<h2 id="maintitle">一元淘吧开奖计算过程验证器</h2>
+		<br>
+	        <form name="cs"> 
+			<table bgcolor="#FFD7C4" width="450">
+			<tbody>
+				<tr>
+				<td align="right" width="140">
+				<span style="font-size: 17px">被除</span><font style="font-size:17px">数：</font>
+				</td>
+				<td width="286">
+				<input class="forminputcontent" style="width:240px;font-size:20px; background-color:#E6F2FF" onfocus="afocus('a')" onkeyup="cscheck(2)" size="6" name="a" value="1292953673300">
+				</td>
+				</tr>
+				<tr>
+				<td align="right" width="140">
+				<font style="font-size:17px">除数：</font>
+				</td>
+				<td width="286">
+				<input class="forminputcontent" style="width:240px;font-size:20px; background-color:#E6F2FF" onfocus="afocus('b')" onkeyup="cscheck(1)" size="6" name="b" value="11">
+				</td>
+				</tr>
+				 <tr>
+				 <td width="140">
+
+					<font color="#FFD6C1">一元淘吧开奖计算过程验证器</font></a></td>
+				 <td>
+				 <input style="font-size: 17px; background-color:#F0FFF8" onclick="calcs()" name="Calculate" value=" 计算 " type="button">
+				 &nbsp;&nbsp;&nbsp;
+				 <input style="font-size: 17px" onclick="csclear()" name="reset" value="清除" type="button">
+				 </td>
+				 </tr>
+				<tr>
+				<td align="right" width="140">
+				<span style="font-size: 17px">商：</span>
+				</td>
+				<td width="286">
+				<input readonly="readonly" class="forminputcontent" style="width:240px;font-size:20px;color:#FF0000;background-color:#F0FFFF" size="6" name="c">
+				</td>
+				</tr>
+				<tr>
+				<td align="right" width="140">
+				<span style="font-size: 17px">余数：</span>
+				</td>
+				<td width="286">
+				<input readonly="readonly" class="forminputcontent" style="width:240px;font-size:20px;color:#FF0000;background-color:#ECFFFF" size="6" name="c2">
+				</td>
+				</tr></form> 
+			</tbody>
+			</table>
+		<br> 
+	&nbsp;
+	<br>
+	</div>
+<font size="4px">  
+例如：<a href="http://www.1ytb.cc/dataserver/17341.html" class="gray02">第1期</a>话费开奖计算<br><br> 
+
+求和： 18487985103(上面100条1元淘记录时间取值相加之和)<br>
+取余： <font color="red">18487985103</font>(<font color="cadetblue">100</font>条时间记录之和) % 101(本商品总需参与人次) = 46(余数)<br>
+结果： 46(余数) + 10000001 = 10000047<br><br>
+
+被除数为<font color="red">18487985103</font>&nbsp;X&nbsp;<font color="cadetblue">101</font>&nbsp;=&nbsp;18487985103&nbsp;&nbsp;<br>18487985103就是被除数<br>&nbsp;<br>
+除数为本商品总需参与人数，这里为101<br>
+&nbsp;<br>
+然后点击计算得出<br>
+商为183049357<br>
+余数为46<br>
+最后1元淘码的计算为<br>
+结果：&nbsp;46(余数)&nbsp;+&nbsp;10000001&nbsp;=&nbsp;10000047<br>
+</font> 
+
+{wc:templates "index","footer"}

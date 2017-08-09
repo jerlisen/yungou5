@@ -1,0 +1,281 @@
+﻿<style type="text/css">
+<!--
+.STYLE1 {
+	color: #FF0000;
+	font-size: 24px;
+}
+-->
+</style>
+{wc:templates "index","header"}
+<div class="main-content clearfix">
+{wc:templates "member","left"}
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/layout-recharge.css"/>
+<script>
+$(function(){
+	var je=$("#ulMoneyList li");
+	var dx=/\D/;
+	je.click(function(){
+		je.removeClass("selected");
+		je.find("input").removeAttr("checked");
+		var radio=je.index(this);
+			je.eq(radio).find("input").attr('checked','checked');
+			je.eq(radio).addClass("selected");
+		var valx=je.eq(radio).find("input").val();
+		$("#Money").text(valx);
+		$("#hidMoney").val(valx);
+	});
+	var tel=$("#txtOtherMoney").val();
+	$("#txtOtherMoney").keyup(function(){	
+		if(dx.test($("#txtOtherMoney").val())){
+			$("#txtOtherMoney").val(tel);			
+		}else{
+			tel=$("#txtOtherMoney").val();
+		}
+		$("#Money").text(tel);
+		$("#hidMoney").val(tel);
+	}); 
+})
+</script>
+<style type="text/css">
+.total{margin-top: 10px;
+background: #fffce2;
+line-height: 20px;
+border: #fd9 1px solid;
+padding: 10px 20px;
+overflow: hidden;
+color: #666;
+zoom: 1;}
+.Apply-con dt {
+width: 100px;
+line-height: 27px;
+color: #666;
+margin-right: 5px;
+float: left;
+text-align: right;
+}
+.Apply-con dd {
+width: 500px;
+float: left;
+line-height: 27px;
+}
+.recharge {
+width: 750px;
+padding-left: 30px;
+}
+.Apply-con {
+margin-top: 20px;
+}
+.Apply-con dl {
+display: inline-block;
+margin-top: 10px;
+height: 29px;
+overflow: hidden;height: 57px;
+}
+.Apply-con .inp-money {
+width: 73px;
+vertical-align: middle;
+margin-right: 5px;
+}
+.Apply-con .inp-money, .Apply-con .input-txt {
+height: 27px;
+line-height: 25px;
+padding: 0 3px;
+border-left: 1px solid #C2C2C2;
+border-top: 1px solid #C2C2C2;
+border-right: 1px solid #E1E1E1;
+border-bottom: 1px solid #E1E1E1;
+font-size: 14px;
+vertical-align: middle;
+display: block;
+float: left;
+}
+</style>
+<div class="R-content">
+	<!--<div class="subMenu">
+		<a id="linkRecharge" class="current">卡密充值</a>
+	</div>
+	<div class="total">
+	<dt>
+		</dt><dd>您的账户可用余额为：<b class="orange">{wc:$member['money']}</b>元
+		</dd> 
+	</div>
+	<div id="divSQCZ" class="Apply-con recharge">
+	 <form action="{WEB_PATH}/cardrecharge/cardrcg/" method="post">
+		<dl>
+			<dt>卡密号码：</dt>
+			<dd><input id="txtCZMoney" style="width:200px" name="code" type="text" class="inp-money" value=""/><span id="tip7"></span>
+			</dd>			
+		</dl>		
+		<dl>
+			<dt>卡密密码：</dt>
+			<dd><input id="txtCZPwd" style="width:200px" name="codepwd" type="text" class="inp-money" value=""/><span id="tip7"></span>
+			</dd>			
+		</dl>	
+	
+		<div class="Apply-button" style="margin-left: 49px">
+			<input type="submit" name="recharge" id="btnSQCZ" class="bluebut" title="充值" value="充值">
+		</div>
+		<div style="margin-top: 10px;height: 44px;margin-left: 125px;">
+			<div style="margin-left: 51px;float:left;height: 39px;line-height: 39px;margin-right:10px;">请点击图片 </div>
+			<ul class="nav" style="width: 74px;float:left">
+				<li><a href="#" id="taobao_click" style="height: 20px;width: 74px;"><img src="{G_TEMPLATES_STYLE}/images/taobao.jpg" style="height: 20px;"/></a>
+					<ul class="nav_sub">
+						<li><a href="#" id="paipai_click" style="height: 20px"><img src="{G_TEMPLATES_STYLE}/images/paipai.jpg" style="height: 20px"/></a></li>
+					</ul>
+				</li>
+			</ul>
+			<div  style="float:left;height: 39px;line-height: 39px;margin-left:10px;"> 购买<span style="color:#f60;font-weight:bold">九折优惠</span>卡密!</div>
+		</div>
+	</form>
+	</div>
+	<div style="clear:both;"></div>
+	<script>
+$(function(){
+  $("#txtCZMoney").blur(function(){
+       var CZMoney=$("#txtCZMoney").val();
+	   if(CZMoney==''){
+	      $("#tip7").html("<font color='#FF6600'>*请输入卡密号码&nbsp;&nbsp;</font>");
+	   }else{
+	       $("#tip1").html("");
+	   }    
+	   
+	}); 
+
+}) 
+ 
+</script> -->
+<div style="border-bottom:1px solid #ccc;height:1px;margin-top: 10px;"></div>
+<form id="toPayForm" name="toPayForm" action="{WEB_PATH}/member/cart/addmoney" method="post" target="_blank">
+	<div class="subMenu"><a id="linkRecharge" class="current">账户充值</a></div>
+	<div class="select">
+		<b class="gray01">请选择充值金额</b>
+	    <ul id="ulMoneyList">
+			<li class="selected" style="margin-left:0;"><input  type="radio" id="rd10" name="money" value="10" checked="checked"> <label for="rd10">充值 <strong>￥</strong><b>10</b></label></li>
+			<li><input type="radio" name="money" value="50" id="rd50"> <label for="rd50">充值 <strong>￥</strong><b>50</b></label></li>
+			<li><input type="radio" name="money" value="100" id="rd100"> <label for="rd100">充值 <strong>￥</strong><b>100</b></label></li>
+			<li><input type="radio" name="money" value="200" id="rd200"> <label for="rd200">充值 <strong>￥</strong><b>200</b></label></li>
+			<li><input type="radio" name="money" value="500" id="rd500"> <label for="rd500">充值 <strong>￥</strong><b>500</b></label></li>
+			<!--<li><input type="radio" name="money" value="2000" id="rd2000"> <label for="rd2000">充值 <strong>￥</strong><b>2000</b></label></li>-->
+           <li class="custom"><input type="radio" value="0" name="money" id="rdOther"> <label for="rdOther">其它金额</label><input value="" id="txtOtherMoney" type="text" class="enter" maxlength="7" /></li>
+		</ul>	
+	</div>
+	<div class="charge_money_list">
+	<p class="title gray01">请选择支付方式</p>
+	<p class="leix STYLE1"><strong>PC(电脑)端请选择第一个微信支付</strong></p>
+	{wc:php:start}
+        	$bank1 = $this->db->GetOne("select * from `@#_caches` where `key` = 'pay_bank_type'");
+            $bank2 = $this->db->GetOne("select * from `@#_pay` where `pay_class` = '$bank1[value]'");
+            if($bank1 && $bank2['pay_start'] ==1){
+	{wc:php:end}		
+	{wc:if $bank1['value'] == 'tenpay'}
+                 <ul class="payment" style="border-bottom:1px dashed #e6e7e8;">
+					<input type="hidden" name="pay_bank" value="tenpay"  />
+                    <li class="top">
+                        <input type="radio" value="CMB" name="account" id="bankType1001" checked="checked"/><label for="bankType1001"><span class="zh_bank"></span></label>
+                        <input type="radio" value="ICBC" name="account" id="bankType1002"/><label for="bankType1002"><span class="gh_bank"></span></label>
+                        <input type="radio" value="CCB" name="account" id="bankType1003"/><label for="bankType1003"><span class="jh_bank"></span></label>
+                        <input type="radio" value="ABC" name="account" id="bankType1005"/><label for="bankType1005"><span class="nh_bank"></span></label>
+                    </li>
+                    
+                    <li class="top">
+                        <input type="radio" value="SPDB" name="account" id="bankType1004"/><label for="bankType1004"><span class="pf_bank"></span></label>  
+                        <input type="radio" value="SDB" name="account" id="bankType1008"/><label for="bankType1008"><span class="sf_bank"></span></label>
+                        <input type="radio" value="CIB" name="account" id="bankType1009"/><label for="bankType1009"><span class="xy_bank"></span></label>
+                        <input type="radio" value="BOB" name="account" id="bankType1032"/><label for="bankType1032"><span class="bj_bank"></span></label>
+                    </li>
+                    
+                    <li class="top">
+                        <input type="radio" value="CEB" name="account" id="bankType1022"/><label for="bankType1022"><span class="gd_bank"></span></label>
+                        <input type="radio" value="CMBC" name="account" id="bankType1006"/><label for="bankType1006"><span class="ms_bank"></span></label>
+                        <input type="radio" value="CITIC" name="account" id="bankType1021"/><label for="bankType1021"><span class="zx_bank"></span></label>
+                        <input type="radio" value="GDB" name="account" id="bankType1027"/><label for="bankType1027"><span class="gf_bank"></span></label>
+                    </li>
+                    
+                    <li class="top">
+                        <input type="radio" value="PAB" name="account" id="bankType1010"/><label for="bankType1010"><span class="pa_bank"></span></label>
+                        <input type="radio" value="BOC" name="account" id="bankType1052"/><label for="bankType1052"><span class="zg_bank"></span></label>
+                        <input type="radio" value="COMM" name="account" id="bankType1020"/><label for="bankType1020"><span class="jt_bank"></span></label>
+                    </li>
+                </ul>
+			{wc:if:end}
+            {wc:if $bank1['value'] == 'yeepay'}		
+           <style>
+				.yeepay_bank img{ border:1px solid #eee; padding:2px; width:130px; height:35px; float:left; margin-right:20px;}
+				.yeepay_bank input{ float:left;}
+			</style>
+			<ul class="payment yeepay_click" style="border-bottom:1px dashed #e6e7e8;">
+				<input type="hidden" name="pay_bank" value="yeepay"  />
+				<li class="top yeepay_bank">
+					<input type="radio" value="ICBC-NET-B2C" name="account" checked="checked" /><img src="{G_TEMPLATES_STYLE}/images/bank/ICBC.png">
+					<input type="radio" value="CCB-NET-B2C" name="account" /><img src="{G_TEMPLATES_STYLE}/images/bank/CCB.png">
+					<input type="radio" value="ABC-NET-B2C" name="account"  /><img src="{G_TEMPLATES_STYLE}/images/bank/ABC.png">
+					<input type="radio" value="CMBCHINA-NET-B2C" name="account" /><img src="{G_TEMPLATES_STYLE}/images/bank/CMBCHINA.png">
+				</li>
+				<li class="top yeepay_bank">					
+					<input type="radio" value="BOC-NET-B2C" name="account" /><img src="{G_TEMPLATES_STYLE}/images/bank/BOC.png">
+					<input type="radio" value="BOCO-NET-B2C" name="account" /><img src="{G_TEMPLATES_STYLE}/images/bank/JIAOTONG.png">
+					<input type="radio" value="CEB-NET-B2C" name="account" /><img src="{G_TEMPLATES_STYLE}/images/bank/CEB.png">
+					<input type="radio" value="GDB-NET-B2C" name="account" /><img src="{G_TEMPLATES_STYLE}/images/bank/GDB.png">
+				</li>
+				<li class="top yeepay_bank">					
+					<input type="radio" value="POST-NET-B2C" name="account" /><img src="{G_TEMPLATES_STYLE}/images/bank/PSBC.png">
+					<input type="radio" value="CMBC-NET-B2C" name="account" /><img src="{G_TEMPLATES_STYLE}/images/bank/CMBC.png">
+					<input type="radio" value="PINGANBANK-NET" name="account" /><img src="{G_TEMPLATES_STYLE}/images/bank/SZPA.png">
+					<input type="radio" value="BCCB-NET-B2C" name="account" /><img src="{G_TEMPLATES_STYLE}/images/bank/BCCB.png">
+				</li>
+            </ul> 
+            {wc:if:end}
+			{wc:php:start}
+				}
+			{wc:php:end}
+		<p class="leix">&nbsp;</p>
+		<ul class="payment yeepay_click">		
+          {wc:loop $paylist  $pay}
+			<li>
+				<input checked="checked" type="radio" value="{wc:$pay['pay_id']}" name="account">               
+                <img style="border:1px solid #eee; padding:1px; margin-right:20px;" height="35px" width="100px" src="{G_UPLOAD_PATH}/{wc:$pay['pay_thumb']}">
+                
+            </li>
+           {wc:loop:end}             
+		</ul>
+		<p class="much">应付金额：<span class="yf"><strong>￥</strong><span id="Money">10</span></span></p>
+		<h6>			
+				<input type="hidden" id="hidPayName" name="payName" value="">
+				<input type="hidden" id="hidPayBank" name="payBank" value="0">
+				<input type="hidden" id="hidMoney" name="money" value="50">
+				<input id="submit_ok" class="bluebut imm" type="submit" name="submit" value="立即充值" title="立即充值">
+	</form>
+		</h6>
+		<div id="payAltBox" style="display:none;">
+			<div class="prompt_box">
+				<p class="pic"><em></em>请您在新开的页面上完成支付！</p>
+				<p class="ts">付款完成之前，请不要关闭本窗口！<br>完成付款后跟据您的个人情况完成此操作！</p>
+				<ul>
+					<li><a href="{WEB_PATH}/member/home/userbalance" class="look" title="查看充值记录">查看充值记录 </a></li>
+					<li><a href="javascript:gotoClick();" class="look" id="btnReSelect" title="重选支付方式">重选支付方式</a></li>
+				</ul>
+			</div>
+		</div>
+  </div>  
+</div>
+</div>
+<script>
+$(function(){
+		
+	$("#submit_ok").click(function(){	
+		if(!this.cc){
+			this.cc = 0;		
+			return true;
+		}else{		
+			return false;
+		}		
+		return false;
+	});
+	
+	$(".yeepay_click li>img").click(function(){			
+			$(this).prev().attr("checked",'checked');
+	});
+
+});
+</script>
+{wc:templates "index","footer"}

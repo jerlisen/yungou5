@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0"/>
+    <title>支付宝|财付通转账充值</title>
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link href="{G_TEMPLATES_CSS}/mobile/comm.css?v=130715" rel="stylesheet" type="text/css" /><link href="{G_TEMPLATES_CSS}/mobile/member.css?v=130726" rel="stylesheet" type="text/css" /><script src="{G_TEMPLATES_JS}/mobile/jquery190.js" language="javascript" type="text/javascript"></script>
+</head>
+<body>
+<div class="h5-1yyg-v11">
+ <!-- 栏目页面顶部 -->
+<!-- 内页顶部 -->
+
+    <header class="g-header">
+        <div class="head-l">
+	        <a href="javascript:;" onClick="history.go(-1)" class="z-HReturn"><s></s><b>返回</b></a>
+        </div>
+        <h2>（支付宝|财付通）转账充值</h2>
+        <div class="head-r">
+	        <a href="{WEB_PATH}/mobile/mobile" class="z-Home"></a>
+        </div>
+    </header>
+	    <li>&nbsp; &nbsp; </li>
+		<li>&nbsp; &nbsp; 回馈新老客户充值送现金活动：</li>
+		<li>&nbsp; &nbsp; 充值100元赠送10元.充值200元赠送30元.</li>
+		<li>&nbsp; &nbsp; 充值300元赠送40元.充值500元赠送50元.</li>
+		<li>&nbsp; &nbsp; 以次类推，上不封顶.....</li>
+        <li>&nbsp; &nbsp; 充值赠送金额工作人员会在当天返现到1元淘账号</li>
+	    <li>&nbsp; &nbsp; </li>
+		<li>&nbsp; &nbsp; 转账支持支付宝.财付通.银行卡（没有金额限制）</li>
+		<li>&nbsp; &nbsp; 充值时请务必在留言处输入您的数字{wc:$member['uid']}</li>
+		<li>&nbsp; &nbsp; 方便快速确认.只要ID输入正确.一般几分钟内到账！</li>
+		<li>&nbsp; &nbsp; 您也可以主动联系客服QQ906656566.可以更快速的到账 </li>
+		<li>&nbsp; &nbsp; </li>
+	    <li>&nbsp; &nbsp; 支付宝</li>
+		<li>&nbsp; &nbsp; 支付宝账号：<span class="red"><b>1ytb@1ytb.cc<b></span></li>
+		<li>&nbsp; &nbsp; 支付宝名称：<span class="red"><b>睿派电子商务有限公司<b></span></li>
+	    <li>&nbsp; &nbsp; </li>
+	    <li>&nbsp; &nbsp; 财付通</li>
+		<li>&nbsp; &nbsp; 财付通账号：<span class="red"><b>906656566<b></span></li>
+		<li>&nbsp; &nbsp; 财付通名称：<span class="red"><b>杨凯鹏（法人代表财付通账号）<b></span></li>
+		<li>&nbsp; &nbsp; </li>
+	    <li>&nbsp; &nbsp; 企业账户</li>
+		<li>&nbsp; &nbsp; 企业收款账号：<span class="red"><b>102439878088<b></span></li>
+		<li>&nbsp; &nbsp; 企业账号名称：<span class="red"><b>睿派电子商务有限公司<b></span></li>
+		<li>&nbsp; &nbsp; 开户行名称：<span class="red"><b>中国银行股份有限公司西安互助路支行<b></span></li>
+    
+{wc:templates "mobile/index","footer"}
+<script language="javascript" type="text/javascript">
+  var Path = new Object();
+  Path.Skin="{G_WEB_PATH}/statics/templates/yungou";  
+  Path.Webpath = "{WEB_PATH}";
+  
+var Base={head:document.getElementsByTagName("head")[0]||document.documentElement,Myload:function(B,A){this.done=false;B.onload=B.onreadystatechange=function(){if(!this.done&&(!this.readyState||this.readyState==="loaded"||this.readyState==="complete")){this.done=true;A();B.onload=B.onreadystatechange=null;if(this.head&&B.parentNode){this.head.removeChild(B)}}}},getScript:function(A,C){var B=function(){};if(C!=undefined){B=C}var D=document.createElement("script");D.setAttribute("language","javascript");D.setAttribute("type","text/javascript");D.setAttribute("src",A);this.head.appendChild(D);this.Myload(D,B)},getStyle:function(A,B){var B=function(){};if(callBack!=undefined){B=callBack}var C=document.createElement("link");C.setAttribute("type","text/css");C.setAttribute("rel","stylesheet");C.setAttribute("href",A);this.head.appendChild(C);this.Myload(C,B)}}
+function GetVerNum(){var D=new Date();return D.getFullYear().toString().substring(2,4)+'.'+(D.getMonth()+1)+'.'+D.getDate()+'.'+D.getHours()+'.'+(D.getMinutes()<10?'0':D.getMinutes().toString().substring(0,1))}
+Base.getScript('{G_TEMPLATES_JS}/mobile/Bottom.js');
+</script>
+ 
+</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+/*´°¿Ú*/
+	#window{width:100%;height:100%;position:absolute;top:0;left:0;display:none;z-index:10000;}
+	#float_window{border:15px solid #000;position:absolute;top:50%;left:50%;padding:0px;z-index:20001;}
+	#float_window .close{ z-index:5000; cursor:pointer; background: url(../images/btn_close_window.gif) no-repeat left top;width:18px; height:18px; position:absolute;right:-10px;top:-10px;}

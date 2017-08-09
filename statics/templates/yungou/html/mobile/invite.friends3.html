@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>邀请管理 - {wc:$webname}触屏版</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+<meta name="apple-mobile-web-app-title" content="人人秒宝">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+
+
+<meta content="{G_TEMPLATES_STYLE}/mobile/images/touch-icon.png" itemprop="image">
+
+<link rel="apple-touch-icon" href="{G_TEMPLATES_STYLE}/mobile/images/touch-icon.png" /><link href="{G_TEMPLATES_MOBILE_CSS}/comm.css" rel="stylesheet" type="text/css" />
+<link href="{G_TEMPLATES_CSS}/mobile/member.css?v=1" rel="stylesheet" type="text/css" />
+<script src="{G_TEMPLATES_JS}/mobile/jquery190.js" language="javascript" type="text/javascript"></script>
+<link href="{G_TEMPLATES_CSS}/mobile/help.css?v=130726001" rel="stylesheet" type="text/css" />
+ <link href="{G_TEMPLATES_CSS}/mobile/new/member.css" rel="stylesheet" type="text/css" />
+ <link href="{G_TEMPLATES_CSS}/mobile/new/comm.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+<style>
+a.btn {
+padding: 0 5px;
+text-align: center;
+color: #fff;
+border: 1px solid #FE6D0B;
+display: inline-block;
+border-radius: 3px;
+box-shadow: 0 1px 2px #E7E7E7;
+background: #f60;
+}
+</style>
+<div class="wrapper m_share">
+	<div class="shareCon">
+		<div class="m_banner"></div>
+		<dl>
+			
+
+			
+				<dt style="color:#F00">邀请好友100福分,还可获得6%好友充值佣金！永久有效！朋友每充值100元，你即可得6元！</dt>
+				<dd><a id="btnShare" href="javascript:;" class="orangeBtn">立即赚钱</a></dd>
+				<dd>已邀请好友：<em class="orange">
+						{wc:$involvedtotal}</em>
+                        <p style="text-align: center;padding-top:5px;">
+<!--<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://m.yungou163.com" class="btn">分享到QQ空间</a>-->
+<script type="text/javascript">
+					(function(){
+					var p = {
+					url:"{WEB_PATH}/mobile/user/register/{wc:$uid}/",
+					showcount:'0',/*是否显示分享总数,显示：'1'，不显示：'0' */
+					desc:'我发现一个很好玩的网站，居然1元就能买到iphone6，快去看看吧！{WEB_PATH}/mobile/user/register/{wc:$uid}/',/*默认分享理由(可选)*/
+					summary:'1元就能买到iphone6s,全新的购物模式,这里有最潮流的数码产品,生活用品,低价尝试,惊喜回报,是娱乐、购物一体化的全新购物平台.1元就有机会买到iphone6【把惊喜带回家】',/*分享摘要(可选)*/
+					title:'人人秒宝官网',/*分享标题(可选)*/
+					site:'人人秒宝官网',/*分享来源 如：腾讯网(可选)*/
+					pics:'{G_TEMPLATES_STYLE}/mobile/images/touch-icon.png', /*分享图片的路径(可选)*/
+					style:'101',
+					width:142,
+					height:30
+					};
+					var s = [];
+					for(var i in p){
+					s.push(i + '=' + encodeURIComponent(p[i]||''));
+					}
+					document.write(['<a class="btn" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?',s.join('&'),'" target="_blank">分享到QQ空间邀请</a>'].join(''));
+					})();
+</script>
+<a href="http://v.t.sina.com.cn/share/share.php?url={WEB_PATH}/mobile/user/register/{wc:$uid}/" class="btn">分享到新浪微博邀请</a>
+				</dd>
+			
+		</dl>
+	</div>
+		
+<div class="m_popUp" id="m_popUp" style="visibility:hidden;">
+    <div class="m_guide">
+        <span></span>
+        <div class="m_how">
+            <h4>怎么赚钱？</h4>
+            <p>1: 点击本页面右上角的三个点的图标</p>
+            <p>2: 选择[发送给朋友]或[分享到朋友圈]</p>
+            <p>3: 经您邀请的好友，可得50-200福分奖励，同时您还可获得好友充值金额6%的佣金奖励</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="helpCon">
+<div class="helpMain m-round">
+<div class="helpInfo">
+<dt>
+<h3 style="color: #fc3571;">二维码赚钱：</h3>
+</dt>
+<dd class="helpBox">
+　　您还可以让近在眼前的朋友直接扫下面的二维码哦，或保存该二维码然后分享到朋友圈，钱就滴答滴答的来了，是不是萌萌哒！
+<br>
+<!--<p style="text-align: center;padding-top:5px;">
+<input type="text" value="{WEB_PATH}/mobile/user/register/{wc:$uid}/" style="color: #fc3571;font-size: 16px;text-align: center;width: 100%;ime-mode: disabled" id="share_url" />
+</p>-->
+
+<p style="text-align: center;padding-top:5px;">
+<img src="{G_WEB_PATH}/qzcode.php?url={WEB_PATH}/mobile/user/register/{wc:$uid}/" style="width:280px;" />
+</p>
+
+<p style="text-align: center;padding-top:5px;">
+
+
+<!--a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={WEB_PATH}/mobile/user/register/{wc:$uid}/" class="btn">分享到QQ空间</a>
+
+<a href="http://v.t.sina.com.cn/share/share.php?title=1元买苹果？注册就送卡密，这一切都是真的，骗人是小狗！&url={WEB_PATH}/mobile/user/register/{wc:$uid}/" class="btn">分享到新浪微博</a-*-->
+<script type="text/javascript">
+					(function(){
+					var p = {
+					url:"{WEB_PATH}/mobile/user/register/{wc:$uid}/",
+					showcount:'0',/*是否显示分享总数,显示：'1'，不显示：'0' */
+					desc:'我发现一个很好玩的网站，居然1元就能买到iphone6，快去看看吧！{WEB_PATH}/mobile/user/register/{wc:$uid}/',/*默认分享理由(可选)*/
+					summary:'1元就能买到iphone6s,全新的购物模式,这里有最潮流的数码产品,生活用品,低价尝试,惊喜回报,是娱乐、购物一体化的全新购物平台.1元就有机会买到iphone6【把惊喜带回家】',/*分享摘要(可选)*/
+					title:'人人秒宝官网',/*分享标题(可选)*/
+					site:'人人秒宝官网',/*分享来源 如：腾讯网(可选)*/
+					pics:'{G_TEMPLATES_STYLE}/mobile/images/touch-icon.png', /*分享图片的路径(可选)*/
+					style:'101',
+					width:142,
+					height:30
+					};
+					var s = [];
+					for(var i in p){
+					s.push(i + '=' + encodeURIComponent(p[i]||''));
+					}
+					document.write(['<a class="btn" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?',s.join('&'),'" target="_blank">分享到QQ空间邀请</a>'].join(''));
+					})();
+</script>
+<a href="http://v.t.sina.com.cn/share/share.php?url={WEB_PATH}/mobile/user/register/{wc:$uid}/" class="btn">分享到新浪微博邀请</a>
+</p>
+</dd>
+</div>
+</div>
+</div>
+<div class="helpCon">
+<div class="helpMain m-round">
+<div class="helpInfo">
+<dt>
+<h3 style="color: #fc3571;">佣金有何用？</h3>
+</dt>
+<dd class="helpBox">
+佣金可以直接充值至余额内，满100元后可以申请提现哦，永久性抽成哦！
+</dd>
+</div>
+</div>
+</div>
+<div class="helpCon">
+<div class="helpMain m-round">
+<div class="helpInfo">
+<dt>
+<h3 style="color: #fc3571;">什么是福分？</h3>
+</dt>
+<dd class="helpBox">
+购物时可直接使用福分抵扣现金进行支付！1000福分可抵扣1元。
+</dd>
+</div>
+</div>
+</div>
+<div class="helpCon">
+<div class="helpMain m-round">
+<div class="helpInfo">
+<dt>
+<h3 style="color: #fc3571;">活动规则</h3>
+</dt>
+<dd class="helpBox">
+自己不可以邀请自己获取佣金，对于查实的作弊行为，取消邀请佣金的资格并清除您的福分账户。借助网站及其他平台，恶意获取佣金，一经查实，扣除一切佣金，清除福分账户且封号。
+</dd>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="m-round m-member-nav">
+<ul>
+	    <li><a href="{WEB_PATH}/mobile/invite/commissions/" style="color:#F00"><b class="z-arrow" ></b>佣金明细</a></li>
+			    <li><a href="{WEB_PATH}/mobile/invite/cashout/" style="color:#F00"><b class="z-arrow"></b>佣金提现（点此提现）</a></li>
+			    <li><a href="{WEB_PATH}/mobile/invite/record/" style="color:#F00"><b class="z-arrow"></b>提现记录</a></li>
+</ul>
+</div>
+</section>
+<script>
+
+var shareData = {
+title: '1元能买iphone6s，真实非虚假广告，1元云购官网！', // 分享标题
+desc: '1元云购是全新的购物模式，1元就能买到苹果手机、奔驰宝马！快去看看吧！做任务还得红包奖励！', // 分享描述
+link: '{WEB_PATH}/mobile/user/register/{wc:$uid}/', // 分享链接
+imgUrl: '{G_TEMPLATES_STYLE}/mobile/images/touch-icon.png', // 分享图标
+success: function () {},
+cancel: function () {}
+};
+$('#share_url').bind('input propertychange', function(){
+if ("{WEB_PATH}/mobile/user/register/{wc:$uid}/" != $(this).val() ) {
+$(this).val("{WEB_PATH}/mobile/user/register/{wc:$uid}/");
+}
+});
+</script>
+{wc:if $wx}
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" language="javascript" type="text/javascript"></script>
+<script type="text/javascript">
+	wx.config({
+		appId: '{wc:$config['appId']}',
+		timestamp: {wc:$config['timestamp']},
+		nonceStr: '{wc:$config['nonceStr']}',
+		signature: '{wc:$config['signature']}',
+		jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone']
+	});
+	wx.ready(function(){
+		wx.onMenuShareAppMessage(shareData);
+		wx.onMenuShareTimeline(shareData);
+		wx.onMenuShareQQ(shareData);
+		wx.onMenuShareWeibo(shareData);
+		wx.onMenuShareQZone(shareData);
+	});
+</script>
+{wc:if:end}
+<script type="text/javascript">
+$("#btnShare").click(
+    function(e)
+    {
+        e.stopPropagation();
+        e.preventDefault();
+        $("#m_popUp").css("visibility","visible");
+    }
+);
+$("#m_popUp").click(
+    function(e)
+    {
+        if($("#m_popUp").is(":visible")) $("#m_popUp").css("visibility","hidden");
+    }
+);
+</script>
+    
+{wc:templates "mobile/index","footer"}
+<script language="javascript" type="text/javascript">
+  var Path = new Object();
+  Path.Skin="{G_TEMPLATES_STYLE}";  
+  Path.Webpath = "{WEB_PATH}";
+  
+var Base={head:document.getElementsByTagName("head")[0]||document.documentElement,Myload:function(B,A){this.done=false;B.onload=B.onreadystatechange=function(){if(!this.done&&(!this.readyState||this.readyState==="loaded"||this.readyState==="complete")){this.done=true;A();B.onload=B.onreadystatechange=null;if(this.head&&B.parentNode){this.head.removeChild(B)}}}},getScript:function(A,C){var B=function(){};if(C!=undefined){B=C}var D=document.createElement("script");D.setAttribute("language","javascript");D.setAttribute("type","text/javascript");D.setAttribute("src",A);this.head.appendChild(D);this.Myload(D,B)},getStyle:function(A,B){var B=function(){};if(callBack!=undefined){B=callBack}var C=document.createElement("link");C.setAttribute("type","text/css");C.setAttribute("rel","stylesheet");C.setAttribute("href",A);this.head.appendChild(C);this.Myload(C,B)}}
+function GetVerNum(){var D=new Date();return D.getFullYear().toString().substring(2,4)+'.'+(D.getMonth()+1)+'.'+D.getDate()+'.'+D.getHours()+'.'+(D.getMinutes()<10?'0':D.getMinutes().toString().substring(0,1))}
+Base.getScript('{G_TEMPLATES_JS}/mobile/Bottom.js');
+</script>
+
+</div>
+</body>
+</html>
