@@ -1,0 +1,81 @@
+{wc:templates "index","header"}
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/Lottery.css"/>
+ 
+<div class="g-main-con clrfix">
+  <div class="w1190">
+    <div class="g-lottery-part1 clrfix">
+      <div class="m-lottery-title">
+        <div class="fl"> <em>最新揭晓</em>  </div>
+        <div class="fr"> <span class="gray9">截至目前共揭晓商品<b class="orange" id="lotteryCount" style="display: inline;">{wc:$total}</b>个</span> </div>
+      </div>
+       
+    </div>
+ 
+    
+    <!--数据列表-->
+    <div id="divLottery" class="g-lottery-part2 clrfix">
+      
+     
+<div id="ulNewAwary">
+						
+										<script type="text/javascript" src="{G_TEMPLATES_JS}/FfxiangFun.js"></script>
+					<script type="text/javascript">
+						$(document).ready(function(){gg_show_time_init("ulNewAwary",'{WEB_PATH}',0);});					
+					</script> 
+
+ 
+
+
+</div>    
+     
+
+     
+
+     
+      {wc:loop $shopqishu $qishu}
+                    {wc:php:start}
+                    	$qishu['q_user'] = unserialize($qishu['q_user']);
+                    {wc:php:end}
+      <div type="isRaff" class="m-lottery-list">
+        <ul>
+          <li class="f-lott-comm"><a title="{wc:$qishu['title']}" class="fl goodsimg" href="{WEB_PATH}/goods/{wc:$qishu['id']}.html" target="_blank" >
+						<img alt="{wc:$qishu['title']}" src="{G_UPLOAD_PATH}/{wc:$qishu['thumb']}">
+						</a></li>
+          <li class="f-lott-detailed">
+            <div class="u-user-info">
+              <p class="fl"><a title="{wc:fun:get_user_name($qishu['q_user'])}" href="{WEB_PATH}/uname/{wc:fun:idjia($qishu['q_uid'])}" target="_blank"><img src="{G_UPLOAD_PATH}/{wc:$qishu['q_user']['img']}"></a>
+
+              <s></s></a></p>
+              <dl class="fl">
+                <dt><em>获得者：</em><span><a class="blue Fb" href="{WEB_PATH}/uname/{wc:fun:idjia($qishu['q_uid'])}" target="_blank">{wc:fun:get_user_name($qishu['q_user'])}</a></span></dt>
+                <!--<dd class="z-lott-lz">来自：北京市</dd>
+-->                <dd>幸运1元淘码：<strong class="orange">{wc:$qishu['q_user_code']}</strong></dd>
+                <dd>本云参与：<i class="orange">{wc:fun:get_user_goods_num($qishu['q_uid'],$qishu['id'])}</i>人次</dd>
+              </dl>
+            </div>
+            <div class="u-comm-info">
+              <dl>
+                <dt><a href="{WEB_PATH}/goods/{wc:$qishu['id']}.html" target="_blank" class="gray01">(第{wc:$qishu['qishu']}期){wc:$qishu['title']}</a></dt>
+                <dd>商品价值：￥{wc:$qishu['money']}</dd>
+                <dd>揭晓时间：{wc:fun:microt($qishu['q_end_time'],'r')}</dd>
+                <dd class="z-lott-btn"><span><a href="{WEB_PATH}/goods/{wc:$qishu['id']}.html" target="_blank" title="查看详情">查看详情</a></span></dd>
+              </dl>
+            </div>
+          </li>
+        </ul>
+      </div>
+      {wc:loop:end}
+      
+      
+      
+    </div>
+    
+     {wc:if $total>$num}
+					<div class="pagesx">{wc:page:two}</div>
+			{wc:if:end}
+            
+            
+  </div>
+</div>
+<div class="clear"></div>
+{wc:templates "index","footer"}

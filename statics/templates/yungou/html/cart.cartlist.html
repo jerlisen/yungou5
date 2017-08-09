@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>购物车 - {wc:fun:_cfg("web_name")}</title>
+<meta name="keywords" content="{wc:if isset($keywords)}{wc:$keywords}{wc:else}{wc:fun:_cfg("web_key")}{wc:if:end}" />
+<meta name="description" content="{wc:if isset($description)}{wc:$description}{wc:else}{wc:fun:_cfg("web_des")}{wc:if:end}" />
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/Comm.css"/>
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/CartList.css"/>
+<script type="text/javascript" src="{G_GLOBAL_STYLE}/global/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="{G_TEMPLATES_STYLE}/js/jquery.cookie.js"></script>
+</head>
+<body>
+<div class="g-header">
+	<div class="m-toolbar">
+		<div class="g-wrap">
+			<div class="m-toolbar-l"><span class="m-toolbar-welcome">欢迎来到一元淘吧！</span></div>
+			<ul class="login_info" style="display: block;">
+					{wc:if  get_user_arr()}
+			<li class="h_wel" id="logininfo">
+				<a href="{WEB_PATH}/member/home.html" class="gray01" >								
+					{wc:fun:get_user_name(get_user_arr(),'username')}
+				</a>&nbsp;&nbsp;
+				<a href="{WEB_PATH}/member/user/cook_end.html" class="gray01">[退出]</a>
+			</li>
+			{wc:else}
+<li><span id="qq_login_btn"><a href="{WEB_PATH}/api/qqlogin/"><img src="{WEB_PATH}/statics/templates/yungou/images/logo6.png" alt="一元淘吧QQ登录1ytb.cc" /></a></span> </li>
+			<li id="logininfo" class="h_login">				
+				<a class="gray01" href="{WEB_PATH}/login" >登录1元淘</a>
+				<span>|</span>
+				<a class="gray01" href="{WEB_PATH}/register" ><font color="red">免费注册</font></a>
+			</li>
+			{wc:if:end}
+			<li class="h_1yyg">
+				<a  href="{WEB_PATH}/member/home.html">我的账户<b></b>&nbsp;</a>
+				<div class="h_1yyg_eject" style="display:none;">
+					<dl>
+						<dt><a  href="{WEB_PATH}/member/home.html">账户中心<i></i></a></dt>
+						<dd><a  href="{WEB_PATH}/member/home/userbuylist.html">1元淘记录</a></dd>
+						<dd><a  href="{WEB_PATH}/member/home.html">获得的商品</a></dd>
+						<dd><a  href="{WEB_PATH}/member/home/userrecharge.html">帐户充值</a></dd>
+						<dd><a  href="{WEB_PATH}/member/home/modify.html">个人设置</a></dd>
+					</dl>
+				</div>
+			</li>
+			<li><a href="javascript:;" id="addSiteFavorite">&nbsp;&nbsp;&nbsp;收藏{wc:fun:_cfg("web_name_two")}</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="m-header">
+		<div class="g-wrap">
+			<div class="m-header-logo">
+			<a href="{G_WEB_PATH}" class="a" title="{wc:fun:_cfg("web_name")}"> <img src="{G_UPLOAD_PATH}/{wc:fun:Getlogo()}" /></a></div>
+			<div class="m-cart-steps m-cart-steps-1">
+			&nbsp;</div>
+		</div>
+	</div>
+</div>
+<div class="g-body">
+	<div class="g-wrap">
+		<div class="shop_process">
+			<div class="i_tips"></div>
+			<div class="submitted">
+				<ul class="order">
+					<li class="top">
+						<span class="goods">商品</span>
+						<span class="name">名称</span>
+						<span class="moneys">价值</span>
+						<span class="money">1元淘价</span>
+						<span class="num">1元淘人次</span>
+						<span class="xj">小计</span>
+						<span class="do">操作</span>
+					</li>
+					{wc:loop $shoplist $shops}            
+					<li class="end" id="shoplist{wc:$shops['id']}">
+						<span class="goods">
+							<a href="{WEB_PATH}/goods/{wc:$shops['id']}.html">
+							 <img src="{G_UPLOAD_PATH}/{wc:$shops['thumb']}" />
+							</a>                    
+						</span>
+						<span class="name">
+							<a href="{WEB_PATH}/go/index/item/{wc:$shops['id']}.html" >{wc:$shops['title']}</a>
+							<p>总需 <span class="color">{wc:$shops['zongrenshu']}</span>人次参与，还剩 
+								   <span class="gorenci">{wc:$shops['cart_shenyu']}</span> 人次
+							</p>
+						</span>
+						<span class="moneys">￥{wc:$shops['money']}</span>
+						<span class="money"><span class="color">￥<b>{wc:$shops['yunjiage']}</b></span></span>
+						<span class="num">				
+							<dl class="add">					
+							<dd><input type="type" val="{wc:$shops['id']}" onkeyup="value=value.replace(/\D/g,'')" value="{wc:$shops['cart_gorenci']}" class="amount" /></dd>
+								<dd>
+									<a href="JavaScript:;" val="{wc:$shops['id']}" class="jia"></a>
+									<a href="JavaScript:;" val="{wc:$shops['id']}" class="jian"></a>
+								</dd>                        
+							</dl>
+							<p class="message"></p>
+						</span>
+						<span  class="xj">{wc:$shops['cart_xiaoji']}</span>
+						<span class="do"><a href="javascript:;" onclick="delcart({wc:$shops['id']})"  class="delgood">删除</a></span> 
+					</li>		
+					{wc:loop:end}
+					<li class="ts">
+						<p class="right">1元淘金额总计:<span style="color:dd344f;font-size:20px;">￥<span><span style="font-size:20px;" id="moenyCount">{wc:$MoenyCount}</span></p>
+					</li>
+				</ul>
+			</div>
+			<h5>
+				<a href="{WEB_PATH}" id="but_on"></a>
+				<input id="but_ok" type="button" value="同意以下协议，提交订单" class="w-button w-button-main w-button-xl" name="submit"/>
+			</h5>
+		</div>  
+		<div class="m-cart-clause">
+			 <h4 style="margin-bottom:10px;color:#000;text-align:center;font-size:20px;line-height:20px;font-weight:bold">一元淘吧服务协议</h4>
+                <p style="margin-bottom:5px;color:#000;text-align:center;font-size:12px;">最后更新时间：2015年10月09日</p>
+                <div style="color:#000;text-indent:2em;font-size:14px;word-wrap:break-word;word-break:break-all">
+                    <p>欢迎访问一元淘吧（www.1ytb.cc），申请使用睿派电子商务有限公司提供的一元淘吧服务（以下简称“一元淘吧”，“一元淘吧”指用户花费1元购买1元淘币，用户可使用1元淘币参与商品抽奖的服务），请您（下列简称为“用户”）仔细阅读以下全部内容<b style="text-decoration:underline">（特别是粗体下划线标注的内容）</b>。如用户不同意本服务条款任意内容，请勿注册或使用一元淘吧。如用户通过进入注册程序并勾选“我同意一元淘吧服务协议”，即表示用户与睿派电子商务有限公司已达成协议，自愿接受本服务条款的所有内容。此后，用户不得以未阅读本服务条款内容作任何形式的抗辩。</p>
+                    <p><b>一、用户使用一元淘吧的前提条件</b></p>
+                    <p>1、用户拥有1元淘帐号</p>
+                    <p>用户注册成为使用一元淘吧的前提是注册并拥有一个1元淘帐号。因此，本服务协议是《1元淘服务条款》的补充条款，与《1元淘服务条款》具有同等法律效力。</p>
+                    <p>2、用户在使用一元淘吧时须具备相应的权利能力和行为能力，能够独立承担法律责任，如果用户在18周岁以下，必须在父母或监护人的监护参与下才能使用本站。</p>
+                    <p><b>二、用户管理</b></p>
+                    <p>1、用户ID</p>
+                    <p>用户首次登录一元淘吧时，一元淘吧会为每位用户生成一个账户ID，作为其使用一元淘吧服务的唯一身份标识，用户需要对其账户项下发生的所有行为负责。</p>
+                    <p>2、用户资料完善</p>
+                    <p>用户应当在使用一元淘吧时完善个人资料，包括但不限于个人手机号码或收货地址等，并保证个人资料的真实、完整、合法有效并及时更新，如注册资料有变动，应及时更新其注册资料。如果用户提供的个人资料不合法、不真实、不准确、不详尽的，用户需承担因此引起的相应责任及后果。</p>
+                    <p>3、1元淘币</p>
+                    <p>（1）1元淘币必须通过睿派电子商务有限公司提供或认可的平台获得，从非睿派电子商务有限公司提供或认可的平台所获得的1元淘币将被认定为来源不符合本服务协议，睿派电子商务有限公司有权拒绝从非睿派电子商务有限公司提供或认可的平台所获得的1元淘币在一元淘吧中使用。</p>
+                    <p>（2）<span style="text-decoration:underline">1元淘币不可退还，1元淘币也不能用于购买或兑换其它睿派电子商务有限公司收费服务或者转移给其他用户。</span></p>
+                    <p>4、用户应当保证在使用一元淘吧的过程中遵守诚实信用原则，不扰乱一元淘吧的正常秩序，不得通过使用他人账户、一人注册多个账户、使用程序自动处理等非法方式损害他人或睿派电子商务有限公司的利益。</p>
+                    <p>5、若用户存在任何违法或违反本服务协议约定的行为，睿派电子商务有限公司有权视用户的违法或违规情况适用以下一项或多项处罚措施：</p>
+                    <p><b style="text-decoration:underline">（1）责令用户改正违法或违规行为；</b></p>
+                    <p><b style="text-decoration:underline">（2）中止、终止部分或全部服务；</b></p>
+                    <p><b style="text-decoration:underline">（3）取消用户1元淘订单并取消奖品发放（若用户已获得奖品），且用户已获得的1元淘币不予退回；</b></p>
+                    <p><b style="text-decoration:underline">（4）冻结或注销用户帐号及其帐号中的1元淘币（如有）；</b></p>
+                    <p><b style="text-decoration:underline">（5）其他睿派电子商务有限公司认为合适在符合法律法规规定的情况下的处罚措施。</b></p>
+                    <p><b style="text-decoration:underline">若用户的行为造成睿派电子商务有限公司及其关联公司损失的，用户还应承担赔偿责任。</b></p>
+                    <p><b style="text-decoration:underline">6、若用户发表侵犯他人权利或违反法律规定的言论，睿派电子商务有限公司有权停止传输并删除其言论、禁止该用户发言、注销用户帐号及其帐号中的1元淘币（如有），同时，睿派电子商务有限公司保留根据国家法律法规、相关政策向有关机关报告的权利。</b></p>
+                    <p><b>三、一元淘吧的使用规则</b></p>
+                    <p>1、释义</p>
+                    <p>（1）1元淘号码：指用户使用1元淘币参与一元淘吧服务时所获取的随机分配号码。</p>
+                    <p>（2）幸运号码：指与某件奖品的全部1元淘号码分配完毕后，一元淘吧根据1元淘规则（详见一元淘吧官方页面）计算出的一个号码。持有该幸运号码的用户可直接获得该奖品。</p>
+                    <p>2、睿派电子商务有限公司承诺遵循公平、公正、公开的原则运营一元淘吧，确保所有用户在一元淘吧中享受同等的权利与义务，中奖结果向所有用户公示。</p>
+                    <p>3、用户知悉，除本协议另有约定外，无论是否获得奖品，用户用于参与一元淘吧的1元淘币不能退回；其完全了解参与一元淘吧活动的存在的风险，睿派电子商务有限公司不保证用户参与一元淘吧一定会获得奖品。</p>
+                    <p><b style="text-decoration:underline">4、用户通过参与一元淘吧获得奖品后，应在7天内登录一元淘吧提交或确认收货地址，否则视为放弃该奖品，用户因此行为造成的损失，睿派电子商务有限公司不承担任何责任。</b></p>
+                    <p>5、用户通过参与一元淘吧获得的奖品，享受该奖品生产厂家提供的三包服务，具体三包规定以该奖品生产厂家公布的为准。</p>
+                    <p><b style="text-decoration:underline">6、如果下列情形发生，睿派电子商务有限公司有权取消用户1元淘订单：</b></p>
+                    <p><b style="text-decoration:underline">（1）因不可抗力、一元淘吧系统发生故障或遭受第三方攻击，或发生其他睿派电子商务有限公司无法控制的情形；</b></p>
+                    <p><b style="text-decoration:underline">（2）根据睿派电子商务有限公司已经发布的或将来可能发布或更新的各类规则、公告的规定，睿派电子商务有限公司有权取消用户订单的情形。</b></p>
+                    <p><b style="text-decoration:underline">睿派电子商务有限公司有权取消用户订单后，用户可申请退还1元淘币，所退1元淘币将在3个工作日内退还至用户账户中。</b></p>
+                    <p>6、若某件奖品的1元淘号码从开始分配之日起90天未分配完毕（大额商品除外），则睿派电子商务有限公司有权取消该件奖品的1元淘活动，并向用户退还1元淘币，所退还1元淘币将在3个工作日内退还至用户账户中。</p>
+                    <p><b>四、本服务协议的修改</b></p>
+                    <p>用户知晓睿派电子商务有限公司不时公布或修改的与本服务协议有关的其他规则、条款及公告等是本服务协议的组成部分。睿派电子商务有限公司有权在必要时通过在一元淘吧内发出公告等合理方式修改本服务协议，用户在享受各项服务时，应当及时查阅了解修改的内容，并自觉遵守本服务协议。用户如继续使用本服务协议涉及的服务，则视为对修改内容的同意，当发生有关争议时，以最新的服务协议为准；用户在不同意修改内容的情况下，有权停止使用本服务协议涉及的服务。</p>
+                    <p>如用户对本规则内容有任何疑问，可登录帮助中心（<a href="http://www.1ytb.cc/help/1" target="_blank">www.1ytb.cc/help/1</a>）进行查询。</p>
+
+			</div>
+		</div>
+		<div class="m-cart-tuijian">
+			<div class="w-hd">
+				<h3 class="w-hd-title">一元淘吧推荐</h3>
+				<a class="w-hd-more" href="{WEB_PATH}/goods_list"></a>
+			</div>
+			<div id="divGoodsRec" class="list_goodsTj">
+				<div id="divRecommend" class="list_goodsTjCon">
+					<div class="Roll_Left" id="Roll_Left"><a name="left" href="javascript:void(0);">&lt;</a></div>
+					<div class="Roll_Con">
+						<ul id="ulRecommend">			
+						{wc:getlist sql="select * from `@#_shoplist` where `renqi`='1' and `q_uid` is null ORDER BY id DESC LIMIT 6"}
+						{wc:loop $data $renqituijian}
+						{wc:php:start}
+						$i=$i+1;
+						{wc:php:end}
+								<li>
+									<div class="pic">
+										<a rel="nofollow" href="{WEB_PATH}/goods/{wc:$renqituijian['id']}.html" target="_blank" title="一元淘吧{wc:$renqituijian['title']}"><img alt="{wc:$renqituijian['title']}" class="lazyimg" data-url="{G_UPLOAD_PATH}/{wc:$renqituijian['thumb']}" src="{G_UPLOAD_PATH}/{wc:$renqituijian['thumb']}" /></a>
+									</div>
+									<p class="name">
+										<a href="{WEB_PATH}/goods/{wc:$renqituijian['id']}.html" target="_blank" title="一元淘吧{wc:$renqituijian['title']}">(第{wc:$renqituijian['qishu']}期){wc:$renqituijian['title']}</a>
+									</p>
+									<p class="money">价值：<span class="rmbgray">{wc:$renqituijian['money']}</span></p>
+									<div class="go_buy">
+										<a href="{WEB_PATH}/goods/{wc:$renqituijian['id']}.html" target="_blank" title="立即1元淘" class="w-button w-button-main w-button-l w-goods-btn-quickBuy" rel="nofollow">立即1元淘</a>			            </div>
+								</li>
+							
+						{wc:loop:end}
+						{wc:getlist:end}   
+								
+							
+						</ul>
+					</div>
+					<div class="Roll_Right" id="Roll_Right"><a name="right" href="javascript:void(0);">&gt;</a></div>
+				</div>
+			</div>
+			<script type="text/javascript" src="{G_TEMPLATES_STYLE}/js/goodlistslide.js"></script>
+			<script type="text/javascript">
+							var scrollPic_01 = new ScrollPic();
+							scrollPic_01.scrollContId   = "ulRecommend"; //内容容器ID
+							scrollPic_01.arrLeftId      = "Roll_Left";//左箭头ID
+							scrollPic_01.arrRightId     = "Roll_Right"; //右箭头ID
+							scrollPic_01.frameWidth     = 1190;//显示框宽度
+							scrollPic_01.pageWidth      = 182; //翻页宽度
+							scrollPic_01.speed          = 20; //移动速度(单位毫秒，越小越快)
+							scrollPic_01.space          = 20; //每次移动像素(单位px，越大越快)
+							scrollPic_01.autoPlay       = true; //自动播放
+							scrollPic_01.autoPlayTime   = 2; //自动播放间隔时间(秒)
+							scrollPic_01.initialize(); //初始化           
+			</SCRIPT>
+		</div>
+</div>
+
+
+<script type="text/javascript"> 
+var info={wc:$Cartshopinfo};
+var numberadd=$(".jia");
+var numbersub=$(".jian");
+var xiaoji=$(".xj");
+var num=$(".amount");
+var message=$(".message");
+var moenyCount=$("#moenyCount");
+
+$(function(){
+	$("#but_ok").click(function(){
+		var countmoney=parseInt(moenyCount.text());		
+		if(countmoney > 0){		
+			//$.cookie('Cartlist','',{path:'/'});
+			$.cookie('Cartlist',$.toJSON(info),{expires:30,path:'/'});
+			document.location.href='{WEB_PATH}/member/cart/pay/'+new Date().getTime();
+		}else{
+			alert("购物车为空!");
+		}
+	});
+});
+function UpdataMoney(shopid,number,zindex){		
+		var number = parseInt(number);
+		info['MoenyCount']=info['MoenyCount']-info[shopid]['money']*info[shopid]['num']+info[shopid]['money']*number;
+		info[shopid]['num']=number;
+		var xjmoney=xiaoji.eq(zindex+1);
+			xjmoney.text(info[shopid]['money']*number+'.00');
+			moenyCount.text(info['MoenyCount']+'.00');
+}
+
+
+function delcart(id){
+	info['MoenyCount'] = info['MoenyCount']-info[id]['money']*info[id]['num'];
+	$("#shoplist"+id).hide();
+	$("#moenyCount").text(info['MoenyCount']+".00");
+	delete info[id];
+	//$.cookie('Cartlist','',{path:'/'});
+	$.cookie('Cartlist',$.toJSON(info),{expires:30,path:'/'});
+}
+
+num.keyup(function(){
+	var shopid=$(this).attr("val");
+	var zindex=num.index(this);	
+	if($(this).val() > info[shopid]['shenyu']){
+		message.eq(zindex).text("1元淘次数不能超过"+info[shopid]['shenyu']+"次");		
+		$(this).val(info[shopid]['shenyu']);
+		UpdataMoney(shopid,$(this).val(),zindex);		
+		return;
+	}
+	if($(this).val()<1){
+		message.eq(zindex).text("1元淘次数不能少于1次");
+		$(this).val(1);
+		UpdataMoney(shopid,$(this).val(),zindex);
+		return;
+	}	
+	UpdataMoney(shopid,$(this).val(),zindex);	
+});
+numberadd.click(function(){
+	var shopid=$(this).attr('val');		
+	var zindex=numberadd.index(this);
+	var thisnum=num.eq(zindex);	
+		if(info[shopid]['num'] >= info[shopid]['shenyu']){
+			message.eq(zindex).text("1元淘次数不能超过"+info[shopid]['shenyu']+"次");
+			return;
+		}
+		var number=info[shopid]['num']+1;			
+			thisnum.val(number);
+			UpdataMoney(shopid,number,zindex);
+});
+numbersub.click(function(){
+	var shopid=$(this).attr('val');		
+	var zindex=numbersub.index(this);
+	var thisnum=num.eq(zindex);	
+		if(info[shopid]['num'] <=1){
+			message.eq(zindex).text("1元淘次数不能少于1次");
+			return;
+		}
+		var number=info[shopid]['num']-1;			
+			thisnum.val(number);
+			UpdataMoney(shopid,number,zindex);
+});
+$(function(){
+	$(".h_1yyg").mouseover(function(){
+		$(".h_1yyg_eject").show();
+	});
+	$(".h_1yyg").mouseout(function(){
+		$(".h_1yyg_eject").hide();
+	});
+	$(".h_news").mouseover(function(){
+		$(".h_news_down").show();
+	});
+	$(".h_news").mouseout(function(){
+		$(".h_news_down").hide();
+	});
+});
+</script> 
+<!--footer 开始-->
+{wc:templates "index","footer"}

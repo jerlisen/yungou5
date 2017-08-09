@@ -1,0 +1,463 @@
+﻿{wc:templates "index","header"}
+
+<div class="layout980 clearfix">
+
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/layout-home.css"/>
+
+{wc:templates "member","left"}
+
+<div class="center">
+
+	<div class="per-info">
+
+		<div class="i-main span-19 last">
+
+		<ul>
+
+			<div class="i-tip yellow-tip">
+
+<span class="c-999">温馨提示:近期有不法分子利用伪装为客服行骗,请勿相信主动联系声称呼客服人员<span>,<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=906656566&amp;site=qq&amp;menu=yes" target="_blank"><span style="color:#E53333;">官方唯一在线客服！</span></a></span></span>
+
+				<p class="orange"><a href="" class="green" target="_blank" hidefocus="true"></a></p>
+
+		  </div>
+
+			
+
+			<h5>我的账号<!--a href="{WEB_PATH}/uname/{wc:fun:idjia($member['uid'])}.html" target="_blank" class="blue"><s></s>{WEB_PATH}/uname/{wc:fun:idjia($member['uid'])}.html</a--></h5>
+
+			<div class="i-mod-bg my-account w700">
+
+			<div class="i-mod-wrapper gradient-white">
+
+			<div class="title">
+
+			<span class="c-999">账号名：</span>
+
+			
+
+			<a href="{WEB_PATH}/uname/{wc:fun:idjia($member['uid'])}.html" target="_blank" class="blue"><s></s><b>
+
+
+
+				{wc:if $member['username']!=null}
+
+				{wc:$member['username']}
+
+				{wc:elseif $member['mobile']!=null}
+
+				{wc:$member['mobile']}
+
+				{wc:else}
+
+				{wc:$member['email']}
+
+				{wc:if:end}
+
+				</b>
+
+			  </a>
+
+                 <em>(<span class="red">ID:{wc:$member['uid']}</span>)</em>
+
+				{wc:if $member['username']!=null}
+
+					{wc:if $member['mobile']!=null}
+
+					({wc:$member['mobile']})
+
+					{wc:if:end}
+
+					{wc:if $member['email']!=null}
+
+					({wc:$member['email']})
+
+					{wc:if:end}
+
+				{wc:if:end}
+
+		
+
+            		<span class="grade">
+
+                        <span class="vip normal"></span>
+
+		 <!-- <a href="{WEB_PATH}/task/task" target="_blank" class="blue" hidefocus="true">做任务升级享更高返利！</a>-->
+
+           <!--个人主页：<p><a href="{WEB_PATH}/uname/{wc:fun:idjia($member['uid'])}.html" class="blue" hidefocus="true">我的1元淘个人主页:</a>&nbsp;&nbsp;<a href="{WEB_PATH}/uname/{wc:fun:idjia($member['uid'])}.html" target="_blank" class="blue"><s></s>{WEB_PATH}/uname/{wc:fun:idjia($member['uid'])}.html</a></span></div></p>
+
+	<span>-->
+
+		<!--<div class="desc clearfix">
+
+		<div class="msg clearfix fl lower">
+
+                <p style="padding:0;">安全等级： <span class="level-word">低</span>
+
+                <span class="level-image-small">
+
+                    <span class="inner lower"></span>
+
+                </span>
+
+                <span class="security-entry">
+
+                                        <span class="red">您的账户有3个安全隐患！</span>
+
+                                        <a href="{WEB_PATH}/member/home/modify" class="orange" hidefocus="true">进入安全中心>></a></span>
+
+                </p>
+
+            </div>
+
+            <div class="msg clearfix fr" style="_width:300px;+width:300px;">
+
+            	        			<p class="c-999">账号安全：
+
+        				<a href="{WEB_PATH}/member/home/password" class="blue" hidefocus="true">[修改密码]</a>&nbsp;&nbsp;
+
+        			</p>
+
+            	        	</div>
+
+		</div>-->
+
+<div class="desc clearfix">
+
+<div class="msg clearfix fl lower">
+
+
+
+			<li class="account-money">
+
+				<em class = "gray02">账户安全：</em> 
+
+				<span class="class-icon0 gray01"><s></s><a href="{WEB_PATH}/member/home/mobilechecking.html" class="blue">[绑定手机]</a>&nbsp;<a href="{WEB_PATH}/member/home/mailchecking.html" class="blue">[绑定邮箱]</a>&nbsp;<a href="{WEB_PATH}/member/home/qqclock.html" class="blue">[绑定QQ]</a></span>
+
+				{wc:if $dengji_2}
+
+					<span class = "gray02">(为了您账号安全建议绑定手机和邮箱)</span>
+
+				{wc:else}
+
+					<span class = "gray02">（还差{wc:$dengji_x}经验值升级到最高等级）</span>
+
+				{wc:if:end}
+
+			</li>
+
+			<li class="account-money">
+
+				<em class = "gray02">经验等级：{wc:$member['jingyan']}</em> 
+
+				<span class="class-icon0{wc:$dengji_1['groupid']} gray01"><s></s>{wc:$dengji_1['name']}</span>
+
+				{wc:if $dengji_2}
+
+					<span class = "gray02">（还差{wc:$dengji_x}经验值升级到{wc:$dengji_2['name']}）</span>
+
+				{wc:else}
+
+					<span class = "gray02">（还差{wc:$dengji_x}经验值升级到最高等级）</span>
+
+				{wc:if:end}
+
+			</li>
+
+
+
+<!--<li class="account-money">
+
+				<em class="gray02">帐户余额：</em>
+
+				<span class="money-red"><s></s>{wc:fun:uidcookie('money')}</span>&nbsp;&nbsp;
+
+				<a href="{WEB_PATH}/member/home/userrecharge" title="我要充值" class="blue">我要充值</a>
+
+</li>
+
+-->
+
+	</div>
+
+	</div>
+
+	</div>
+
+</div>
+
+
+
+<h5>账户余额：</b><span class="green-price"><em>{wc:$member['money']}</em> <span class="c-999">元</span>&nbsp;（<a href="{WEB_PATH}/member/home/userrecharge" title="我要充值" class="blue">我要充值</a>）  &nbsp;<b>积分：</b><span class="green-price"><em>{wc:$member['score']}</em> <span class="c-999">（积分可以购物使用）</h5>
+
+<div class="grey-bg w700">
+
+	<div class="p0-15">
+
+          <p>
+
+	<span class="green-price"><span class="c-999"></span></span>  积分兑换现金比例：
+
+				<span class="money-red">
+
+				{wc:php:start}
+
+					$conf = System::load_app_config("user_fufen",'','member');
+
+					$fufen_to_money  = intval($member['score'] / $conf['fufen_yuan']);								
+
+				{wc:php:end}
+
+				{wc:$member['score']}积分 / {wc:$conf['fufen_yuan']}积分&nbsp;(1元={wc:$conf['fufen_yuan']}积分)	 = 
+
+				{wc:$fufen_to_money}元&nbsp;(取整数)
+
+				</span>&nbsp;&nbsp;
+
+</p>
+
+
+
+		 
+
+                       <!--&nbsp;&nbsp;&nbsp;<a href="{WEB_PATH}/task/task/" onclick="$(this).hide();" class="orange" hidefocus="true">做新手任务&gt;</a>-->
+
+                    </p>
+
+ <p>推广提成：<b class="orange">{wc:$total}</b>元&nbsp;&nbsp;（邀请好友可以获得6%现金提成+邀请好友注册完成可获得10积分奖励）</a></span>
+
+        <div class="hr"></div>
+
+        <p>
+
+			<span class="btn"><a class="i" href="{WEB_PATH}/member/home/commissions.html" hidefocus="true">邀请返利收入</a></span>
+
+<!--
+
+<span class="btn"><a class="i" href="{WEB_PATH}/member/home/user_fanli.html" hidefocus="true">任务返利收入</a></span>
+
+<span class="btn"><a class="i" href="{WEB_PATH}/member/home/user_fanli.html" hidefocus="true">购物返利收入</a></span>
+
+-->
+
+          <span class="btn"><a class="i" href="{WEB_PATH}/member/home/commissions.html" hidefocus="true">佣金明细</a></span>
+
+        <span class="btn"><a class="i" href="{WEB_PATH}/member/home/cashout.html" hidefocus="true">佣金提现</a></span>
+
+        	<span class="btn"><a class="i" href="{WEB_PATH}/member/home/record.html" hidefocus="true">提现记录</a></span>
+
+        </p>
+
+	</div>
+
+</div>
+
+
+
+
+
+<h5>我的邀请：成功邀请 <span class="orange">{wc:$involvedtotal}</span> 位会员注册，已有 <span class="orange">{wc:$involvednum}</span> 位会员参与1元淘&nbsp;&nbsp;<a class="c-999" target="_blank" href="{WEB_PATH}/member/home/invitefriends" hidefocus="true">赶紧邀请去&gt;&gt;</a> </h5>
+
+<div class="grey-bg w700">
+
+	<div class="p0-15">
+
+		<p class="c-666">
+
+                 <style>
+
+	 .kuangzi {border:1px solid #F0F0F0; border-left:0px; border-right:0px; margin-top:10px; padding:10px 0px 10px 5px; color:#999;}
+
+	 #d_clip_container { float:right;}
+
+     </style>
+
+
+
+
+
+		  	<li class="account-money">
+
+<p>
+
+	［完善昵称： <span class="orange">+50</span>积分 <span class="orange">+1</span>经验］&nbsp;&nbsp;<span>［自己消费：&nbsp;</span><span class="orange">+1</span><span>积分&nbsp;</span><span class="orange">+2</span><span>经验</span>］&nbsp;
+
+</p>
+
+<p>
+
+	［绑定手机： <span class="orange">+50</span>积分 <span class="orange">+2</span>经验］ &nbsp;<span>［邀请好友：&nbsp;</span><span class="orange">+10%</span><span>佣金&nbsp;</span><span class="orange">+1</span><span>经验</span><span>］</span> 
+
+</p>
+
+<p>
+
+	［邀请好友消费： <span class="orange">+10</span>积分 <span class="orange">+1</span>经验］&nbsp;&nbsp;［邀请好友手机绑定： <span class="orange">+30</span>积分 <span class="orange">+3</span>经验］
+
+</p>
+
+<p>
+
+	<br />
+
+</p>
+
+<p>
+
+	1.可以通过分享方式邀请好友，立即分享到您的QQ、MSN、人人、开心、微博上的朋友。</p>
+
+<p>
+
+2.也可以通过自己的QQ推广，也可以到论坛、贴吧、社区、博客等多种渠道去推广，您发
+
+<br />
+
+	&nbsp; 布的外链越多，以后您的数据就增长的越快。只要有人通过您的推广链接进入网站，就会
+
+<br />
+
+	&nbsp; 获得收入。您不需要有自己的网站即可申请推广链接，任何人都可以做我们的推广员。<br />
+
+&nbsp; 特别提醒：推广的时候不能仅仅推广链接，一定至少要带上一句和一元淘吧相关或商品相
+
+<br />
+
+	&nbsp; 关的文字说明（例如：一元淘吧让您1元购买苹果6S，或想1元购买苹果6S吗?到一元淘吧
+
+<br />
+
+	&nbsp; 网，或我刚发现一个很好很好玩的网站，1元就能买IPhone 6S哦，快去看看吧！）
+
+</p>
+
+<p>
+
+	3.通过您的邀请链接注册的会员不管任何时候在一元淘吧进行冲值或购买您都可以<br />
+
+&nbsp; &nbsp;获得的高额佣金，一次邀请永久提成！
+
+</p>
+
+
+
+<!--         <div id="d_clip_container"><div id="d_clip_button" class="bluebut" style="margin-top:2px;">复制</div></div>-->
+
+</li>
+
+
+
+        </p>
+
+        <div class="hr"></div>
+
+        <div class="invite-share-site">
+
+            <!-- Baidu Button BEGIN -->
+
+            <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" data="{'url':'{WEB_PATH}'}">
+
+                <span class="bds_more">分享：</span>
+
+                <a class="bds_sqq" hidefocus="true" title="分享到QQ好友" href="#">QQ好友</a>
+
+                <a class="bds_qzone" hidefocus="true" title="分享到QQ空间" href="#">QQ空间</a>
+
+                <a class="bds_tsina" hidefocus="true" title="分享到新浪微博" href="#">新浪微博</a>
+
+                <a class="bds_tqq" hidefocus="true" title="分享到腾讯微博" href="#">腾讯微博</a>
+
+                <a class="bds_renren" hidefocus="true" title="分享到人人网" href="#">人人</a>
+
+                <a class="bds_taobao" hidefocus="true" title="分享到我的淘宝" href="#">淘宝</a>
+
+                <a class="bds_douban" hidefocus="true" title="分享到豆瓣网" href="#">豆瓣</a>
+
+            </div>
+
+            <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=645315" src="http://bdimg.share.baidu.com/static/js/bds_s_v2.js?cdnversion=385186"></script>
+
+            
+
+            <script type="text/javascript">
+
+                var bds_config = {'bdText':'淘宝这么多年，才发现，原来买东西可以用【一元淘吧】拿返利省钱的，赶紧试试吧，一般人我不告诉他！','bdPic':'http://dl.mizhe.com/upload/img/12q3/snsspic.jpg','bdDesc':'分享个我的淘宝省钱小窍门，买东西先上【一元淘吧网】，买完直接拿现金返利，省钱So easy！','review':'off'};
+
+                document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+
+            </script>
+
+            <!-- Baidu Button END -->
+
+        </div>
+
+        <div class="clearfix">&nbsp;</div>
+
+		</div>			
+
+		</DIV>
+
+		</ul>		
+
+		</div>
+
+     </div>
+
+</div>
+
+<!--center_center_end-->
+
+<div class="right">				
+
+	<div class="groups-shadow clearfix">
+
+		<div class="R-grtit">
+
+			<h3>圈子热门话题</h3>
+
+		</div>
+
+		<div class="m-results-leastRemain-title-ft"></div>
+
+		<ul class="R-list">
+
+			{wc:loop $quanzi $tm}
+
+			<li>
+
+				<p class="groups-t"><a href="{WEB_PATH}/group/nei/{wc:$tm['id']}.html" target="_blank" class="gray">{wc:$tm['title']}</a></p>
+
+				<p class="groups-c gray02">{wc:fun:qztitle($tm['qzid'])}<span class="gray03"> | </span>{wc:fun:tiezi($tm['id'])}条回复</p>
+
+			</li>
+
+			{wc:loop:end}
+
+		</ul>
+
+	</div> 
+
+	<p class="r-line"></p>
+
+	<!-- <div class="gg-content">
+
+		<div class="R-grtit"><h3>公告栏</h3></div>
+
+		<ul class="gg-list">	
+
+			<li><span class="point"></span><span class="info"><a href="http://group.1ytb.cc/Topic-621.html" target="_blank" class="gray" title="关于“幸运1元淘码”计算结果错误的公告">关于“幸运1元淘码”计算结果错误的公告</a></span></li>
+
+		</ul>
+
+	</div> -->
+
+</div>
+
+<!--center_rjght_end-->
+
+
+
+</div>
+
+
+
+{wc:templates "index","footer"}

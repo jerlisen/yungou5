@@ -1,0 +1,95 @@
+{wc:templates "index","header"}
+<script type="text/javascript" src="{G_TEMPLATES_JS}/gdjs.js"></script>
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/Lottery.css"/>
+<div class="g-body">
+	<div class="m-results">
+		<div class="g-wrap f-clear">
+			<div class="g-main m-results-revealList">
+				<div id="current" class="publish_Curtit">
+						<h1 class="fl">最新揭晓</h1>
+						<span id="spTotalCount">(到目前为止共揭晓商品<em class="orange">{wc:$total}</em>件)</span>
+				</div>
+				<div class="m-results-mod-bd">
+					<ul class="w-revealList f-clear">
+						{wc:loop $shopqishu $qishu}
+								{wc:php:start}
+									$qishu['q_user'] = unserialize($qishu['q_user']);
+								{wc:php:end}
+								<li class="w-revealList-item">
+									<div class="w-goods w-goods-reveal">
+										<div class="w-goods-info">
+											<div class="w-goods-pic">
+											<a class="fl goodsimg" href="{WEB_PATH}/dataserver/{wc:$qishu['id']}.html" target="_blank" >
+											<img width="200px" height="180px" alt="" src="{G_UPLOAD_PATH}/{wc:$qishu['thumb']}"></a>
+											</div>
+											<p class="w-goods-title f-txtabb">
+											<a href="{WEB_PATH}/dataserver/{wc:$qishu['id']}.html" target="_blank" class="gray01">(第{wc:$qishu['qishu']}期){wc:$qishu['title']}</a>
+											<p>
+											<p class="w-goods-price">总需{wc:$qishu['money']}人次</p>
+										</div>
+										<div class="w-record">
+											<div class="w-record-avatar">
+											<a class="fl headimg" href="{WEB_PATH}/uname/{wc:fun:idjia($qishu['q_uid'])}.html" target="_blank" >
+											<img id="imgUserPhoto" src="{G_UPLOAD_PATH}/{wc:$qishu['q_user']['img']}" width="40" height="40" border="0"/>
+											</a>
+											</div>
+											<div class="w-record-detail">
+												<p class="user f-breakword">恭喜<a href="{WEB_PATH}/uname/{wc:fun:idjia($qishu['q_uid'])}.html" target="_blank">{wc:fun:get_user_name($qishu['q_user'])}</a><span class="txt-green">({wc:fun:get_ip($qishu['id'],'ipcity')})</span>获得该奖品</p>
+												<p>1元淘码:<b class="txt-red">{wc:$qishu['q_user_code']}</b></p>
+												<p>本期参与:<b class="txt-red">{wc:fun:get_user_goods_num($qishu['q_uid'],$qishu['id'])}</b>人次</p>
+												<p>揭晓时间:<span title="一元淘吧奖品揭晓时间:{wc:fun:microt($qishu['q_end_time'],'r')}">{wc:fun:microt($qishu['q_end_time'],'r')}</span></p>
+												<p><a class="w-button w-button-simple" href="{WEB_PATH}/dataserver/{wc:$qishu['id']}.html" rel="nofollow" target="_blank">查看详情</a></p>
+											</div>
+										</div>
+									</div>
+								</li>	
+								{wc:loop:end}
+					</ul>
+				</div>
+										{wc:if $total>$num}
+								<div class="pagesx">{wc:page:two}</div>
+						{wc:if:end}
+			</div>
+			<div class="g-side">
+				<div class="m-results-leastRemain">
+					<div class="m-results-leastRemain-title">
+						<h4>即将揭晓</h4>
+					</div>
+					<div class="m-results-leastRemain-title-ft"></div>
+					<div class="m-results-leastRemain-main">
+						<ul class="w-remainList">
+						{wc:loop $shoplistjijiang $jijiangslist}
+						{wc:php:start}
+							$jijiangslist['q_user'] = unserialize($jijiangslist['q_user']);
+						{wc:php:end}	
+						<li class="w-remainList-item">
+							<div class="w-goods w-goods-ing">
+								<div class="w-goods-pic">
+									<a href="{WEB_PATH}/goods/{wc:$jijiangslist['id']}.html" target="_blank" title="{wc:$jijiangslist['title']}"><img src="{G_UPLOAD_PATH}/{wc:$jijiangslist['thumb']}" alt="{wc:$jijiangslist['title']}"></a>
+								</div>
+								<p class="w-goods-title f-txtabb">
+									<a href="{WEB_PATH}/goods/{wc:$jijiangslist['id']}.html" target="_blank" title="{wc:$jijiangslist['title']}">(第{wc:$jijiangslist['qishu']}期){wc:$jijiangslist['title']}</a>
+								</p>
+								<p class="w-goods-price">总需：{wc:$jijiangslist['zongrenshu']} 人次 </p>
+								<div class="Progress-bar" style="">
+									<p class="w-progressBar-wrap" title="已完成{wc:fun:percent($jijiangslist['canyurenshu'],$jijiangslist['zongrenshu'])}"><span  class="w-progressBar-bar" style="width:{wc:fun:width($jijiangslist['canyurenshu'],$jijiangslist['zongrenshu'],205)}px;"></span></p>
+									<ul class="Pro-bar-li">
+										<li class="P-bar01"><em>{wc:$jijiangslist['canyurenshu']}</em>已参与人次</li>
+										<li class="P-bar02"><em>{wc:$jijiangslist['zongrenshu']}</em>总需人次</li>
+										<li class="P-bar03"><em>{wc:$jijiangslist['zongrenshu']-$jijiangslist['canyurenshu']}</em>剩余人次</li>
+									</ul>
+								</div>
+								<div class="w-goods-opr">
+									<a class="w-button w-button-main w-button-l" style="width:96px;" href="{WEB_PATH}/goods/{wc:$jijiangslist['id']}.html" target="_blank" class="go_buy">我来扫尾</a>
+								</div>
+							</div>
+						</li>
+						{wc:loop:end}	
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{wc:templates "index","footer"}
