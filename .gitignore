@@ -1,0 +1,5 @@
+# this is a git ignore file.
+
+*.log
+test/
+.idea/
