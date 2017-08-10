@@ -7,6 +7,12 @@ return array (
     'c' => 'mobile',
     'a' => 'init',
   ),
+  'm.1ytb.com' => 
+  array (
+    'm' => 'mobile',
+    'c' => 'mobile',
+    'a' => 'init',
+  ),
 );
 
 ?>

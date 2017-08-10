@@ -1132,6 +1132,7 @@ body.sort .head_nav .nav_center ul.nav_list li a.nav_ico {
 .m-index-record-newest .m-index-mod-ft{height:36px;background-color:#f5f5f5;}
 .m-index-record-newest .w-record-user{color:#3399ff;}
 .w-record-detail{line-height:22px;*zoom:1;}
+.w-record-nb-item {overflow:hidden;border-bottom:1px solid #ddd;}
 .w-record-nb-item,.w-record-rich-item{padding:15px 10px;height:66px;background-color:#f5f5f5;}
 .w-record-avatar,.w-record-goods{float:left;margin-top:5px;}
 .w-record-detail{line-height:22px;*zoom:1;}

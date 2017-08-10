@@ -6,3 +6,5 @@ test/
 .idea/
 **/caches_log
 **/*.tpl.php
+m.txt
+*.sql
