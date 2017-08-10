@@ -8,3 +8,4 @@ test/
 **/*.tpl.php
 m.txt
 *.sql
+**/auto_p.xml

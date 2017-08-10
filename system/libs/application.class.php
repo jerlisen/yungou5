@@ -17,10 +17,10 @@
 		$_cfg['route_a'] = ROUTE_A;
         if (strcmp(ROUTE_M,'api') != 0 &&
             strcmp(ROUTE_M,'auto') != 0){
-            file_put_contents('route_url.txt',"【QUERY_STRING=".$_SERVER['QUERY_STRING']."】",FILE_APPEND);
-            file_put_contents('route_url.txt',"【route_m=".ROUTE_M."】",FILE_APPEND);
-            file_put_contents('route_url.txt',"【route_c=".ROUTE_C."】",FILE_APPEND);
-            file_put_contents('route_url.txt',"【route_a=".ROUTE_A."】\n",FILE_APPEND);
+            file_put_contents('1.log',"【QUERY_STRING=".$_SERVER['QUERY_STRING']."】",FILE_APPEND);
+            file_put_contents('1.log',"【route_m=".ROUTE_M."】",FILE_APPEND);
+            file_put_contents('1.log',"【route_c=".ROUTE_C."】",FILE_APPEND);
+            file_put_contents('1.log',"【route_a=".ROUTE_A."】\n",FILE_APPEND);
         }
 		$this->global_start();
 		$this->global_init();
