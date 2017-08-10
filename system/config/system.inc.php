@@ -1,10 +1,10 @@
 <?php 
  defined('G_IN_SYSTEM') or exit('No permission resources.'); 
 return array( 
-'web_name' => '一元淘吧 惊喜无限',//网站名
+'web_name' => '一元淘吧 中国最公平的一元购平台',//网站名
 'web_key' => '1元淘,一元淘,1元淘吧,一元淘吧,一元购物,一元淘吧官网,',//网站关键字
 'web_des' => '',//网站介绍
-'web_path' => 'http://demo.52jscn.com',//网站地址
+'web_path' => 'http://www.1y-tb.com',//网站地址
 'templates_edit' => '1',//是否允许在线编辑模板
 'templates_name' => 'yungou',//当前模板方案
 'charset' => 'utf-8',//网站字符集
@@ -19,12 +19,12 @@ return array(
 'index_name' => '?',//隐藏首页文件名
 'expstr' => '/',//url分隔符号
 'admindir' => 'admin',//后台管理文件夹
-'qq' => '906656566',//qq
+'qq' => '534025364',//qq
 'cell' => '400-888-8888',//联系电话
-'web_logo' => 'banner/20151116/47312500686251.png',//logo
-'web_copyright' => '锦尚中国源码论坛',//版权
+'web_logo' => 'banner/20170810/logo-2.png',//logo
+'web_copyright' => '北京梯子科技有限公司',//版权
 'web_name_two' => '1元淘',//短网站名
-'qq_qun' => '518834054',//QQ群
+'qq_qun' => '203161543',//QQ群
 'goods_end_time' => '120',//开奖动画秒数(单位秒)
 ); 
  ?>

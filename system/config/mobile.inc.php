@@ -2,9 +2,9 @@
  return array (
   'cfg_mobile_2' => 
   array (
-    'mid' => '1ytb.cc',
-    'mpass' => '1ytb.cc',
-    'mqianming' => '【一元淘吧】',
+    'mid' => 'shandong115',
+    'mpass' => 'asdasd321321',
+    'mqianming' => '',
   ),
   'cfg_mobile_1' => 
   array (

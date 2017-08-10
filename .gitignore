@@ -1,5 +1,8 @@
 # this is a git ignore file.
 
 *.log
+*.logs
 test/
 .idea/
+**/caches_log
+**/*.tpl.php

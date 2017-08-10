@@ -561,7 +561,7 @@ class user extends base {
 			_message("该账号验证成功",WEB_PATH."/login");
 		}
 		
-		if($member['mobilecode'] == '1'){
+		if($member['mobilecode'] == '-1'){
 			$sendok = send_mobile_reg_code($member['reg_key'],$member['uid']);	
 			if($sendok[0]!=1){
 					_message("正在发送...",WEB_PATH."/member/user/mobilecheck/".$this->segment(4));
@@ -617,7 +617,7 @@ class user extends base {
 			_message("该账号验证成功",WEB_PATH."/login");
 		}
 		
-		if($member['mobilecode'] == '1'){
+		if($member['mobilecode'] == '-1'){
 			$sendok = send_mobile_reg_code($member['reg_key'],$member['uid']);	
 			if($sendok[0]!=1){
 					_message("正在发送...",WEB_PATH."/member/user/mobilecheck/".$this->segment(4));
