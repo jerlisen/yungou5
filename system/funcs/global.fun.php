@@ -581,7 +581,8 @@ function _is_mobile() {
 /* PHP解析错误处理 */
 function _error_handler(){
 	error_reporting(E_ERROR | E_WARNING | E_PARSE);
-	ini_set("display_errors","OFF");					 				//错误报告提示关闭
+    ini_set("display_errors","OFF");					 				//错误报告提示关闭
+    ini_set('log_errors','On');
 	ini_set("error_log",G_CACHES."error.".date("Y-m-d").".logs");	    //写错误日志的地址
 
 }
@@ -791,4 +792,18 @@ function _xml_to_array($xml){
 			}
 		}
 	return $arr;
+}
+function my_php_log($file,$line,$msg) {
+    if (strripos($file,'\\') !== 0){
+        $f = substr($file,strripos($file,"\\")+1);
+    }
+    else if (strripos($file,'/') !== 0){
+        $f = substr($file,strripos($file,"/")+1);
+    }
+    else {
+        $f = $file;
+    }
+
+    /*error_log(date('Y-m-d H:i:s',time()).'|'.$f.'|'.$line.'|'.$msg."\n",3, 'log\\'.date("Y-m-d") .'.log');*/
+    error_log($f.'|'.$line.'|'.$msg."\n",0);
 }
