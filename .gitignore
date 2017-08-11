@@ -9,3 +9,4 @@ test/
 m.txt
 *.sql
 **/auto_p.xml
+test.txt
